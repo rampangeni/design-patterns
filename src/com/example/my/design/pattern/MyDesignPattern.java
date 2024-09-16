@@ -1,7 +1,25 @@
 package com.example.my.design.pattern;
 
+import com.example.my.design.pattern.behavioral.observer.Observer;
+import com.example.my.design.pattern.behavioral.observer.PhoneDisplayObserver;
+import com.example.my.design.pattern.behavioral.observer.TVDisplayObserver;
+import com.example.my.design.pattern.behavioral.observer.WeatherStationSubject;
+import com.example.my.design.pattern.creational.builder.Student;
+import com.example.my.design.pattern.creational.factory.FactoryDesignPattern;
+import com.example.my.design.pattern.creational.factory.FactorySuperClass;
+import com.example.my.design.pattern.creational.singleton.EagerInitializedSingleton;
+import com.example.my.design.pattern.creational.singleton.LazyInitializationSingleton;
+import com.example.my.design.pattern.creational.singleton.StaticBlockSingleton;
+import com.example.my.design.pattern.creational.singleton.ThreadSafeLockingSingleton;
+import com.example.my.design.pattern.creational.singleton.ThreadSafeSingleton;
+
 public class MyDesignPattern {
     public static void main(String[] args) {
+
+        System.out.println("***************************");
+        System.out.println("CREATIONAL DESIGN PATTERNS");
+        System.out.println("***************************");
+        System.out.println("\n");
 
         System.out.println("SINGLETON DESIGN PATTERN");
         {
@@ -20,6 +38,7 @@ public class MyDesignPattern {
             System.out.println("5. ThreadSafeLockingSingleton");
             ThreadSafeLockingSingleton threadSafeLockingSingleton = ThreadSafeLockingSingleton.getInstance();
         }
+        System.out.println("\n");
 
         System.out.println("FACTORY DESIGN PATTERN");
         {
@@ -31,11 +50,13 @@ public class MyDesignPattern {
             FactorySuperClass third = FactoryDesignPattern.getChildClass("THIRD", "third");
             System.out.println(third);
         }
+        System.out.println("\n");
 
         System.out.println("ABSTRACT FACTORY DESIGN PATTERN");
         {
 
         }
+        System.out.println("\n");
 
         System.out.println("BUILDER DESIGN PATTERN");
         {
@@ -47,5 +68,28 @@ public class MyDesignPattern {
                     .build();
             System.out.println(student);
         }
+        System.out.println("\n");
+
+        System.out.println("***************************");
+        System.out.println("STRUCTURAL DESIGN PATTERNS");
+        System.out.println("***************************");
+        System.out.println("\n");
+
+        System.out.println("***************************");
+        System.out.println("BEHAVIORAL DESIGN PATTERNS");
+        System.out.println("***************************");
+        System.out.println("\n");
+
+        System.out.println("OBSERVER DESIGN PATTERN");
+        {
+            System.out.println("1. ObserverDesignPattern");
+            WeatherStationSubject weatherStation = new WeatherStationSubject();
+            Observer phoneDisplay = new PhoneDisplayObserver();
+            Observer tvDisplay = new TVDisplayObserver();
+            weatherStation.addObserver(phoneDisplay);
+            weatherStation.addObserver(tvDisplay);
+            weatherStation.setWeather("Sunny");
+        }
+        System.out.println("\n");
     }
 }
